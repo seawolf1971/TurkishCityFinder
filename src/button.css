@@ -1,0 +1,20 @@
+.button {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #4a4a6a; /* Arkaplan rengi */
+    border: 1.5px solid white; /* Beyaz çerçeve */
+    border-radius: 20px; /* Yuvarlak köşeler */
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+    transition: all 0.3s ease; /* Geçiş animasyonu */
+  }
+  
+  .button:hover {
+    background-color: white; /* Hoverda arkaplan beyaz olur */
+    color: #4a4a6a; /* Hoverda yazı rengi değişir */
+    border: 2px solid #4a4a6a; /* Çerçeve rengi değişir */
+  }
+  
