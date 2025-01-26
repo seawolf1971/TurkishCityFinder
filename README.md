@@ -1,70 +1,139 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Turkish City Finder
 
-## Available Scripts
+**Turkish City Finder**, Türkiye'nin şehirlerini tahmin etme üzerine eğlenceli ve öğretici bir web oyunudur. Bu proje, React ile geliştirilmiş bir frontend ve MySQL ile desteklenen bir backend altyapısına sahiptir. Kullanıcıların şehir bilgilerini ve ipuçlarını değerlendirerek doğru tahmini yapmalarını hedefler.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🎯 Projenin Amacı
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Oyunun amacı, rastgele seçilmiş bir şehri verilen ipuçlarıyla tahmin etmektir. Kullanıcı, şehirlerle ilgili farklı özellikleri (örneğin plaka numarası, nüfus, harf sayısı gibi) dikkate alarak doğru tahmine ulaşmaya çalışır.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Özellikler
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Türkiye Haritası**:
+  - Haritada tüm şehirler görüntülenir.
+  - Şehirlerin üzerine fareyle geldiğinizde belirginleşir.
+  - Doğru tahmin edilen şehir yeşil, yanlış tahmin edilen şehir kırmızı renk alır.
 
-### `npm run build`
+- **Şehir Tahmini**:
+  - Kullanıcı haritadan şehir seçebilir veya giriş kutusundan şehir adı yazabilir.
+  - `Tahmin Et` butonu veya Enter tuşu ile tahmin yapılır.
+  - Doğru tahminde detaylı şehir bilgileri görüntülenir.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **İpuçları**:
+  - **Plaka numarası**: Yukarı/aşağı ok ve renk kodlarıyla kıyaslama.
+  - **Bölge**: Doğru veya farklı bölgeye göre renk kodları.
+  - **Nüfus**: Yukarı/aşağı ok ve renk kodlarıyla kıyaslama.
+  - **Harf sayısı**: Yukarı/aşağı ok ve renk kodlarıyla kıyaslama.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Tahmin Hakları**:
+  - Kullanıcı, toplam 4 tahmin hakkına sahiptir.
+  - Tüm haklar bitince doğru şehir otomatik olarak gösterilir.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🚀 Teknolojiler
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Frontend
+- **React**: Kullanıcı arayüzünü geliştirmek için.
+- **TailwindCSS**: Modern ve sade bir tasarım için.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Backend
+- **Node.js**: Backend API geliştirmek için.
+- **MySQL**: Şehir verilerini depolamak için.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📦 Kurulum
 
-## Learn More
+Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları takip edebilirsiniz:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 1. Depoyu Klonlayın
+```bash
+git clone https://github.com/seawolf1971/TurkishCityFinder.git
+cd TurkishCityFinder
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 2. Bağımlılıkları Yükleyin
+```bash
+npm install
+```
 
-### Code Splitting
+### 3. Backend için MySQL Kurulumu
+- MySQL'i yükleyin ve veritabanınızı oluşturun.
+- Veritabanı yapılandırması için `.env` dosyasını doldurun:
+  ```
+  DB_HOST=localhost
+  DB_USER=root
+  DB_PASSWORD=yourpassword
+  DB_NAME=turkish_city_finder
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 4. Projeyi Çalıştırın
+#### Backend:
+```bash
+npm run start:backend
+```
 
-### Analyzing the Bundle Size
+#### Frontend:
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🗺️ Oyun Akışı
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Şehir seçimi yapılır (giriş kutusu veya harita üzerinden).
+2. Kullanıcı tahminde bulunur.
+3. Doğru tahmin edilirse:
+   - Şehir yeşil renk alır.
+   - Şehir hakkında bilgi gösterilir.
+4. Yanlış tahmin edilirse:
+   - Şehir kırmızı renk alır.
+   - Kullanıcıya ipuçları sunulur.
+5. Tüm haklar tükenirse doğru şehir açıklanır.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📂 Proje Yapısı
 
-### Deployment
+```plaintext
+turkish-city-finder/
+├── .gitignore        # Git izleme dışı bırakılan dosyalar
+├── README.md         # Proje açıklamaları
+├── package.json      # Proje bağımlılıkları
+├── src/              # Frontend dosyaları
+│   ├── components/   # React bileşenleri
+│   ├── pages/        # Sayfa düzenleri
+│   └── App.js        # Uygulama başlangıç dosyası
+├── backend/          # Backend dosyaları
+│   ├── routes/       # API rotaları
+│   ├── models/       # Veritabanı modelleri
+│   └── server.js     # Backend giriş dosyası
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## ✨ Katkıda Bulunma
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Katkıda bulunmak isterseniz lütfen bu adımları takip edin:
+
+1. Depoyu forklayın.
+2. Kendi dalınızı oluşturun (`git checkout -b ozellik-adi`).
+3. Değişikliklerinizi commit edin (`git commit -m 'Yeni bir özellik ekledim'`).
+4. Değişikliklerinizi dalınıza gönderin (`git push origin ozellik-adi`).
+5. Bir **Pull Request** açın.
+
+---
+
+## 📧 İletişim
+
+Eğer bir sorunla karşılaşırsanız veya önerileriniz varsa, lütfen bana ulaşın:
+
+- **GitHub**: [seawolf1971](https://github.com/seawolf1971)
+- **E-posta**: egemendurgun01@gmail.com
+
